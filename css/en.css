@@ -1,0 +1,129 @@
+/* =====================================================================
+   ROYAL PLASTIC MOGHIMI — en.css
+   Left-to-right overrides for the English pages (en/).
+   Loaded last on every English page. Each rule mirrors a right/left rule
+   from the Persian CSS so the layout reads naturally from left to right.
+   ===================================================================== */
+
+/* ---------- Font ---------- */
+[dir="ltr"] body { font-family: var(--font-en); line-height: 1.7; }
+[dir="ltr"] .h2,
+[dir="ltr"] h1, [dir="ltr"] h2, [dir="ltr"] h3 { letter-spacing: -.01em; }
+
+/* ================= LAYOUT (header, menu, footer) ================= */
+[dir="ltr"] .wa-float { left: auto; right: 26px; flex-direction: row-reverse; }
+[dir="ltr"] .wa-float__tip { padding: 10px 16px 10px 12px; }
+[dir="ltr"] .wa-float__tip::before { right: auto; left: -6px; }
+[dir="ltr"] .wa-float__tip.is-open { animation-name: tipInLtr; }
+@keyframes tipInLtr { from { opacity: 0; transform: translateX(10px) scale(.96); } to { opacity: 1; transform: none; } }
+
+[dir="ltr"] .mega { right: auto; left: -40px; }
+[dir="ltr"] .mega__inner::before { right: auto; left: 64px; }
+[dir="ltr"] .mega__side { border-right: 0; border-left: 1px solid rgba(111, 196, 232, .15); }
+
+[dir="ltr"] .footer-card__text a { text-align: left; }
+[dir="ltr"] .footer-handle { text-align: left; }
+
+@media (max-width: 1180px) {
+  [dir="ltr"] .mega { right: auto; left: -120px; }
+  [dir="ltr"] .mega__inner::before { right: auto; left: 144px; }
+}
+
+@media (max-width: 960px) {
+  [dir="ltr"] .nav {
+    right: auto; left: 0;
+    border-left: 0; border-right: 1px solid rgba(111, 196, 232, .2);
+    transform: translateX(-100%);
+  }
+  [dir="ltr"] .nav.is-open { transform: none; }
+  [dir="ltr"] .mega { left: auto; }
+  [dir="ltr"] .mega__side { border-left: 0; }
+}
+
+@media (max-width: 640px) {
+  [dir="ltr"] .wa-float { left: auto; right: 16px; }
+}
+
+/* ================= HOME ================= */
+[dir="ltr"] .hero__slides { left: auto; right: 0; }
+[dir="ltr"] .hero__slide::after { background: linear-gradient(270deg, rgba(6, 20, 48, .12), rgba(6, 20, 48, .6)); }
+[dir="ltr"] .hero__fade { left: auto; right: calc(52% - 220px); background: linear-gradient(270deg, rgba(6, 20, 48, 0), var(--navy-900)); }
+[dir="ltr"] .hero__word { right: auto; left: 40px; font-family: var(--font-en); font-size: 220px; }
+[dir="ltr"] .hero__counter { left: auto; right: 48px; }
+[dir="ltr"] .hero__title { line-height: 1.12; }
+
+[dir="ltr"] .stat + .stat { border-right: 0; padding-right: 0; border-left: 1px solid rgba(111, 196, 232, .18); padding-left: 32px; }
+
+[dir="ltr"] .product-tab { text-align: left; }
+[dir="ltr"] .product-tab.is-active { background: linear-gradient(90deg, rgba(32, 160, 210, .18), rgba(32, 160, 210, 0)); }
+[dir="ltr"] .products-section .product-tab.is-active { background: linear-gradient(90deg, rgba(32, 160, 210, .12), rgba(32, 160, 210, 0)); }
+[dir="ltr"] .product-tab.is-active::before { right: auto; left: 0; }
+[dir="ltr"] .product-preview__num { left: auto; right: 24px; }
+
+[dir="ltr"] .industries__glow { left: auto; right: 18%; margin: -450px -450px 0 0; }
+[dir="ltr"] .export-map__tag { right: auto; left: 18px; }
+[dir="ltr"] .quote__deco { left: auto; right: -120px; }
+
+@media (max-width: 960px) {
+  [dir="ltr"] .stat:nth-child(3) { border-left: 0; padding-left: 0; }
+}
+@media (max-width: 600px) {
+  [dir="ltr"] .stat + .stat { padding-left: 16px; }
+  [dir="ltr"] .stat:nth-child(3) { padding-left: 0; }
+  [dir="ltr"] .hero__word { font-size: 120px; }
+}
+
+/* ================= PRODUCT PAGES ================= */
+[dir="ltr"] .p-keys > div + div { border-right: 0; border-left: 1px solid rgba(111, 196, 232, .25); }
+[dir="ltr"] .p-hero__frame { right: 50px; left: 0; }
+[dir="ltr"] .p-hero__photo { left: 50px; right: 0; }
+[dir="ltr"] .p-hero__badge { right: auto; left: 0; }
+[dir="ltr"] .p-hero__dots { left: auto; right: 26px; }
+
+[dir="ltr"] .spec-table { border-right: 0; border-left: 1px solid var(--input-line); }
+[dir="ltr"] .spec { border-left: 0; border-right: 1px solid var(--input-line); }
+[dir="ltr"] .spec strong { text-align: right; }
+
+[dir="ltr"] .wbar__fill { right: auto; left: 0; background: linear-gradient(90deg, var(--sky), var(--blue)); }
+[dir="ltr"] .type-panel__num { left: auto; right: 30px; }
+
+[dir="ltr"] .app-panel__media::before { right: 0; left: 30px; }
+[dir="ltr"] .app-panel__media img { right: auto; left: 0; }
+
+[dir="ltr"] .steps::before { background: linear-gradient(90deg, var(--red), var(--sky), var(--sky-light)); }
+[dir="ltr"] .p-cta__mark { left: auto; right: -120px; }
+
+[dir="ltr"] .faq-item p { padding: 0 60px 24px 10px; }
+@media (max-width: 640px) {
+  [dir="ltr"] .p-keys > div + div { border-left: 0; }
+  [dir="ltr"] .p-hero__frame { right: 20px; left: 0; }
+  [dir="ltr"] .p-hero__photo { left: 20px; right: 0; }
+  [dir="ltr"] .faq-item p { padding-right: 10px; }
+  [dir="ltr"] .p-hero__dots { left: auto; right: 16px; }
+}
+
+/* ================= ABOUT ================= */
+[dir="ltr"] .a-stat + .a-stat { border-right: 0; border-left: 1px solid rgba(111, 196, 232, .18); }
+[dir="ltr"] .story__quote { border-right: 0; border-left: 4px solid var(--red); }
+[dir="ltr"] .value + .value { border-right: 0; border-left: 1px solid var(--line-light); }
+[dir="ltr"] .mile { text-align: left; }
+[dir="ltr"] .a-cta__mark { left: auto; right: -120px; }
+@media (max-width: 960px) {
+  [dir="ltr"] .a-stat:nth-child(3) { border-left: 0; }
+  [dir="ltr"] .value:nth-child(3) { border-left: 0; }
+}
+@media (max-width: 640px) {
+  [dir="ltr"] .value + .value { border-left: 0; }
+}
+
+/* ================= CONTACT ================= */
+[dir="ltr"] .quick__btn:hover { transform: translateX(4px); }
+[dir="ltr"] .c-card__num { text-align: left; }
+
+/* ================= BLOG ================= */
+[dir="ltr"] .toc a { border-right: 0; border-left: 2px solid transparent; }
+[dir="ltr"] .toc a:hover, [dir="ltr"] .toc a.is-active { border-color: var(--red); }
+[dir="ltr"] .toc a::before { content: counter(toc); }
+[dir="ltr"] .art-body ul, [dir="ltr"] .art-body ol { padding-right: 0; padding-left: 22px; }
+[dir="ltr"] .tip { border-right: 0; border-left: 4px solid var(--sky); }
+[dir="ltr"] .art-table th, [dir="ltr"] .art-table td { text-align: left; }

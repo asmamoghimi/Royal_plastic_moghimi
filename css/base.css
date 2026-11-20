@@ -1,0 +1,132 @@
+/* =====================================================================
+   ROYAL PLASTIC MOGHIMI — base.css
+   Fonts, colours, reset and small helpers used on every page.
+   Load order on every page: base.css → layout.css → components.css → page css
+   ===================================================================== */
+
+/* ---------- Fonts (self-hosted, no Google Fonts needed) ---------- */
+@font-face {
+  font-family: 'Vazirmatn';
+  src: url('../assets/fonts/Vazirmatn.woff2') format('woff2');
+  font-weight: 100 900;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Montserrat';
+  src: url('../assets/fonts/Montserrat.woff2') format('woff2');
+  font-weight: 100 900;
+  font-display: swap;
+}
+
+/* ---------- Colours & sizes ---------- */
+:root {
+  --navy-950: #040D20;
+  --navy-900: #061430;
+  --navy-850: #081A3A;
+  --navy-800: #0A1F44;
+  --navy-700: #0F2A5C;
+  --blue: #004A96;
+  --blue-mid: #2E7BC4;
+  --sky: #20A0D2;
+  --sky-light: #6FC4E8;
+  --red: #E2645A;
+  --red-dark: #D4524A;
+  --whatsapp: #25D366;
+
+  --paper: #F3F7FB;
+  --line-light: #DDE4EE;
+  --input-line: #C9D3E3;
+  --muted-dark: #4A5670;
+  --muted-light: rgba(255, 255, 255, .65);
+  --line-dark: rgba(111, 196, 232, .2);
+
+  --font-fa: 'Vazirmatn', Tahoma, sans-serif;
+  --font-en: 'Montserrat', 'Vazirmatn', sans-serif;
+
+  --container: 1320px;
+  --ease: cubic-bezier(.2, .7, .2, 1);
+}
+
+/* ---------- Reset ---------- */
+*, *::before, *::after { box-sizing: border-box; }
+
+html { scroll-behavior: smooth; -webkit-text-size-adjust: 100%; }
+
+body {
+  margin: 0;
+  font-family: var(--font-fa);
+  font-size: 16px;
+  line-height: 1.85;
+  color: #ffffff;
+  background: var(--navy-900);
+  -webkit-font-smoothing: antialiased;
+  overflow-x: hidden;
+}
+
+img, svg { display: block; max-width: 100%; }
+a { color: inherit; text-decoration: none; }
+button, input, select, textarea { font: inherit; color: inherit; }
+h1, h2, h3, h4, p { margin: 0; }
+ul { margin: 0; padding: 0; list-style: none; }
+
+:focus-visible { outline: 2px solid var(--sky-light); outline-offset: 3px; }
+
+/* ---------- Helpers ---------- */
+.container {
+  width: min(var(--container), 100% - 48px);
+  margin-inline: auto;
+}
+
+.ltr { direction: ltr; unicode-bidi: isolate; }
+.en  { font-family: var(--font-en); }
+
+.sr-only {
+  position: absolute !important;
+  width: 1px; height: 1px;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+  white-space: nowrap;
+}
+
+/* faint blueprint grid used on dark sections */
+.grid-bg {
+  background-image:
+    linear-gradient(rgba(111, 196, 232, .025) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(111, 196, 232, .025) 1px, transparent 1px);
+  background-size: 64px 64px;
+}
+
+/* section spacing + headings */
+.section { padding: 130px 0; }
+.section--light { background: var(--paper); color: var(--navy-800); }
+.section--white { background: #ffffff; color: var(--navy-800); }
+.section--dark  { background-color: var(--navy-900); }
+.section--dark2 { background-color: var(--navy-850); }
+
+.h2 { font-size: clamp(32px, 4vw, 48px); font-weight: 900; line-height: 1.4; }
+.lead-dark  { font-size: 17px; color: var(--muted-dark); }
+.lead-light { font-size: 16px; color: var(--muted-light); }
+.accent { color: var(--sky-light); }
+
+/* outlined numbers / words */
+.outline-text { color: transparent; -webkit-text-stroke: 1.5px rgba(255, 255, 255, .5); }
+
+/* ---------- Scroll reveal (js/main.js adds .is-visible) ---------- */
+.reveal { opacity: 0; transform: translateY(36px); transition: opacity .9s var(--ease), transform .9s var(--ease); }
+.reveal.is-visible { opacity: 1; transform: none; }
+
+/* ---------- Shared animations ---------- */
+@keyframes spin  { to { transform: rotate(360deg); } }
+@keyframes pulse { 0% { box-shadow: 0 0 0 0 rgba(226, 100, 90, .7); } 100% { box-shadow: 0 0 0 18px rgba(226, 100, 90, 0); } }
+@keyframes dash  { to { stroke-dashoffset: -40; } }
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after { animation: none !important; transition: none !important; }
+  .reveal { opacity: 1; transform: none; }
+  html { scroll-behavior: auto; }
+}
+
+@media (max-width: 900px) {
+  .section { padding: 90px 0; }
+}
